@@ -1,0 +1,169 @@
+/* =========================
+   One Piece x Lieferheld – simple style.css
+   (nur Styling, kein JS)
+========================= */
+
+/* --- Farbpalette --- */
+:root{
+  --deep-blue:#0d1b2a;      /* Meer-Nacht */
+  --navy:#12263a;           /* Header/Leiste */
+  --parchment:#f5e6c8;      /* Pergament-Hintergrund */
+  --parchment-2:#ead9b8;    /* hellere Fläche */
+  --gold:#d4a94f;           /* Goldlinie/Akzent */
+  --rope:#b38746;           /* Seilrand */
+  --ink:#2b1f12;            /* Tintenbraun (Text) */
+  --sea:#3db3d8;            /* Meeres-Accent (Buttons) */
+}
+
+/* --- Mini-Reset --- */
+*{box-sizing:border-box}
+html,body{margin:0;padding:0}
+img{max-width:100%;display:block;height:auto}
+button{font:inherit;border:none;background:none;cursor:pointer}
+
+/* --- Seite --- */
+body{
+  font-family: "Georgia","Times New Roman",serif;
+  color: var(--ink);
+  background:
+    radial-gradient(1200px 700px at 12% -20%, rgba(61,179,216,.18), transparent 60%),
+    linear-gradient(180deg, var(--deep-blue), var(--navy));
+}
+
+/* --- Header --- */
+.main_header{
+  position: sticky; top:0; z-index:10;
+  background: linear-gradient(180deg, rgba(18,38,58,.92), rgba(18,38,58,.85));
+  border-bottom: 4px solid var(--gold);
+  box-shadow: 0 6px 16px rgba(0,0,0,.35);
+  color: #ffe9b0;
+}
+
+/* Titel/Claim */
+.main_headline{
+  max-width: 1200px; margin: 0 auto;
+  display: flex; align-items: baseline; justify-content: space-between;
+  gap: 16px; padding: 16px;
+}
+.main_headline h1{
+  margin:0; font-size: clamp(22px, 3vw, 36px);
+  text-shadow: 0 1px 0 rgba(0,0,0,.4);
+}
+.main_headline p{
+  margin:0; opacity:.9; font-style: italic;
+}
+
+/* Schalterleiste (Kategorien) */
+.header_menu_switch{
+  max-width: 1200px; margin: 0 auto; padding: 0 16px 14px;
+  display: grid; gap: 12px; grid-template-columns: 120px 1fr;
+  align-items: start;
+}
+.header_menu_switch > img{
+  width: 100%; height: 80px; object-fit: cover; border-radius: 8px;
+  border: 2px solid var(--rope);
+  box-shadow: 0 3px 10px rgba(0,0,0,.25);
+}
+.header_menu_switch nav{
+  display: grid; gap: 10px;
+}
+
+.switch_big_table{
+  display: flex; align-items: center; gap: 10px; flex-wrap: wrap;
+  background: linear-gradient(180deg, var(--parchment), var(--parchment-2));
+  border: 2px solid var(--rope);
+  border-radius: 12px;
+  padding: 8px 10px;
+  box-shadow: inset 0 1px 0 rgba(255,255,255,.5), 0 4px 12px rgba(0,0,0,.2);
+}
+
+.switch_table{
+  margin:0; font-weight: 700; letter-spacing:.3px;
+}
+
+/* Kategorie-Buttons */
+.button_switch{
+  padding: 6px 12px; border-radius: 999px; font-weight: 700;
+  color: #142331;
+  background: linear-gradient(180deg, #cfefff, #9fd4ec);
+  border: 1px solid #79b9d4;
+  box-shadow: 0 1px 0 rgba(255,255,255,.7) inset, 0 3px 10px rgba(0,0,0,.2);
+  transition: transform .15s ease, box-shadow .15s ease, border-color .15s ease;
+}
+.button_switch:hover{
+  transform: translateY(-1px);
+  border-color: var(--sea);
+  box-shadow: 0 1px 0 rgba(255,255,255,.85) inset, 0 8px 16px rgba(0,0,0,.25);
+}
+
+/* --- Hauptbereich --- */
+main{
+  max-width: 1200px; margin: 24px auto; padding: 0 16px 24px;
+}
+
+/* Katalog-Tabelle (eine Karte je Gericht) */
+#menuCatalogTable{
+  display: grid; gap: 16px;
+}
+
+/* Karte im Lieferheld-Stil, aber Pergament/Seil */
+.catalog_table{
+  display: grid; grid-template-columns: 1fr auto;
+  align-items: center; gap: 12px;
+  background: linear-gradient(180deg, #fff6de, #f1e2c5);
+  border: 2px solid var(--rope);
+  border-radius: 14px;
+  padding: 12px 14px;
+  box-shadow: 0 10px 24px rgba(0,0,0,.18), inset 0 0 0 2px rgba(255,255,255,.45);
+  transition: transform .2s ease, box-shadow .2s ease, border-color .2s ease;
+}
+.catalog_table:hover{
+  transform: translateY(-2px);
+  border-color: var(--gold);
+  box-shadow: 0 14px 32px rgba(0,0,0,.26), 0 0 0 3px rgba(212,169,79,.18);
+}
+
+/* Inhalte links */
+.catalog_item h2{ margin:0 0 6px; font-size: 20px; color: var(--ink) }
+.catalog_item p{ margin:0 0 6px; color:#4b3b2a }
+.catalog_item em{ color:#6b5a41 }
+.catalog_item small{ display:inline-block; margin-top:6px; font-weight:700 }
+
+/* Add-to-cart Spalte rechts */
+.button_catalog{
+  display:flex; align-items:center; justify-content:center;
+}
+.button_catalog button{
+  padding: 10px 14px; border-radius: 12px; font-weight:800;
+  color:#132030;
+  background: linear-gradient(180deg, #ffd477, #f1c35d);
+  border:1px solid #e3b34c;
+  box-shadow: 0 1px 0 rgba(255,255,255,.7) inset, 0 6px 16px rgba(0,0,0,.18);
+  transition: transform .15s ease, box-shadow .15s ease, border-color .15s ease, opacity .15s ease;
+}
+.button_catalog button:hover{
+  transform: translateY(-1px);
+  border-color: var(--gold);
+  box-shadow: 0 1px 0 rgba(255,255,255,.85) inset, 0 10px 22px rgba(0,0,0,.24);
+}
+
+/* --- Footer --- */
+.main_footer{
+  max-width:1200px; margin: 0 auto; padding: 16px;
+  color: #d7c7a6; text-align:center;
+  border-top: 2px dashed #c9b489;
+  text-shadow: 0 1px 0 rgba(0,0,0,.25);
+}
+
+/* --- Responsive --- */
+@media (max-width: 900px){
+  .header_menu_switch{
+    grid-template-columns: 1fr; /* Bild nach oben */
+  }
+  .header_menu_switch > img{ height: 120px }
+  .catalog_table{
+    grid-template-columns: 1fr; /* Button unter den Text */
+    gap: 10px;
+  }
+  .button_catalog{ justify-content: flex-start }
+}
