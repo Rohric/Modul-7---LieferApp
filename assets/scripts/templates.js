@@ -9,7 +9,7 @@ function templateMenuCatalog(item) {
                 </section>
 
                 <section class="button_catalog">
-                    <small>${item.Berry}</small>
+                    <small>${item.Berry} Berry</small>
                     <button>in den korb</button>
                 </section>
                 
