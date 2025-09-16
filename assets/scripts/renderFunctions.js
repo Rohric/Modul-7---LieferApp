@@ -16,36 +16,36 @@ function renderAllMainDishes() {
 
   // Fisch anhängen
   htmlAll += templateSectionStart('Hauptgerichte','Fisch und Meeresfrüchte','assets/images/fisch.jpg')
-  for (let idxItem = 0; idxItem < itemFish.length; idxItem++) {
-    const catalogItem = itemFish[idxItem];
-    htmlAll += templateMenuCatalog(catalogItem, `addToOrder('mainDishes','fishDishes',${idxItem})`);
+  for (let indexDish = 0; indexDish < itemFish.length; indexDish++) {
+    const catalogItem = itemFish[indexDish];
+    htmlAll += templateMenuCatalog(catalogItem, `addToOrder('mainDishes','fishDishes',${indexDish})`);
   };
 
   // Fleisch anhängen
   htmlAll += templateSectionStart('Hauptgerichte','Fleisch','assets/images/fleisch.jpg')
-  for (let idxItem = 0; idxItem < itemMeat.length; idxItem++) {
-    const catalogItem = itemMeat[idxItem];
+  for (let indexDish = 0; indexDish < itemMeat.length; indexDish++) {
+    const catalogItem = itemMeat[indexDish];
     htmlAll += templateMenuCatalog(catalogItem);
   }
 
   // Kuchen anhängen
   htmlAll+= templateSectionStart('Desserts','Kuchen','assets/images/kuchen.jpg')
-  for (let idxItem = 0; idxItem < itemCake.length; idxItem++) {
-    const catalogItem = itemCake[idxItem];
+  for (let indexDish = 0; indexDish < itemCake.length; indexDish++) {
+    const catalogItem = itemCake[indexDish];
     htmlAll += templateMenuCatalog(catalogItem);
   }
 
   // Sorbet anhängen
   htmlAll+= templateSectionStart('Desserts','Sorbets','assets/images/sorbets.jpg')
-  for (let idxItem = 0; idxItem < itemSorbet.length; idxItem++) {
-    const catalogItem = itemSorbet[idxItem];
+  for (let indexDish = 0; indexDish < itemSorbet.length; indexDish++) {
+    const catalogItem = itemSorbet[indexDish];
     htmlAll += templateMenuCatalog(catalogItem);
   }
 
   // Cocktails anhängen
   htmlAll+= templateSectionStart('Getränke','Cocktails','assets/images/drinks.jpg')
-  for (let idxItem = 0; idxItem < itemDrinks.length; idxItem++) {
-    const catalogItem = itemDrinks[idxItem];
+  for (let indexDish = 0; indexDish < itemDrinks.length; indexDish++) {
+    const catalogItem = itemDrinks[indexDish];
     htmlAll += templateMenuCatalog(catalogItem);
   }
 

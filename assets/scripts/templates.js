@@ -1,21 +1,3 @@
-// Templatefunkion zur Anzeige der einzelnen Catalog Einträgen
-function templateMenuCatalog(catalogItem, refFunction) {
-  return ` <article class="catalog_table ">
-
-                <section class="catalog_item">
-                    <h2>${catalogItem.Name}</h2>
-                    <p>${catalogItem.Beschreibung}</p>
-                    <em>${catalogItem.Lore}</em>
-                </section>
-
-                <section class="button_catalog">
-                    <small>${catalogItem.Berry} Berry</small>
-                    <button onclick="${refFunction}">in den korb</button>
-                </section>
-                
-            </article>`;
-}
-
 // Templatefunkion zur Anzeige des start und end Bereiches 
 function templateSectionStart(CatalogBereich, Kategorie, imgSrc) {
   return `
@@ -26,4 +8,24 @@ function templateSectionStart(CatalogBereich, Kategorie, imgSrc) {
       </header>
   `;
 }
+
+// Templatefunkion zur Anzeige der einzelnen Catalog Einträgen
+function templateMenuCatalog(catalogDish, refFunction) {
+  return ` <article class="catalog_table ">
+
+                <section class="catalog_item">
+                    <h2>${catalogDish.Name}</h2>
+                    <p>${catalogDish.Beschreibung}</p>
+                    <em>${catalogDish.Lore}</em>
+                </section>
+
+                <section class="button_catalog">
+                    <small>${catalogDish.Berry} Berry</small>
+                    <button onclick="${refFunction}">in den korb</button>
+                </section>
+                
+            </article>`;
+}
+
+
 
