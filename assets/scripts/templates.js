@@ -1,16 +1,16 @@
 // Templatefunkion zur Anzeige der einzelnen Catalog Einträgen
-function templateMenuCatalog(item) {
-  return ` <article class="catalog_table">
+function templateMenuCatalog(catalogItem, refFunction) {
+  return ` <article class="catalog_table ">
 
                 <section class="catalog_item">
-                    <h2>${item.Name}</h2>
-                    <p>${item.Beschreibung}</p>
-                    <em>${item.Lore}</em>
+                    <h2>${catalogItem.Name}</h2>
+                    <p>${catalogItem.Beschreibung}</p>
+                    <em>${catalogItem.Lore}</em>
                 </section>
 
                 <section class="button_catalog">
-                    <small>${item.Berry} Berry</small>
-                    <button onclick="getOrder">in den korb</button>
+                    <small>${catalogItem.Berry} Berry</small>
+                    <button onclick="${refFunction}">in den korb</button>
                 </section>
                 
             </article>`;
@@ -24,7 +24,6 @@ function templateSectionStart(CatalogBereich, Kategorie, imgSrc) {
         <img src="${imgSrc}" alt="${Kategorie}" width="56" height="56">
         <h2 id="${CatalogBereich}-title">${Kategorie}</h2>
       </header>
-      <div class="catalog_grid">
   `;
 }
 

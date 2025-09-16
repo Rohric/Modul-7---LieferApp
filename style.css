@@ -167,6 +167,7 @@ main {
 .catalog_table {
   display: flex;
   flex-direction: column;
+  margin: 16px;
   
   justify-content: space-between;
   gap: 12px;

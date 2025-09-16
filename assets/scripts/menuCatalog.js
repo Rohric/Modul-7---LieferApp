@@ -142,67 +142,69 @@ const menuCatalog = {
       ],
       
   },
-   drinks : [
-    {
-      Name: "Gomu-Gomu Punch 🍓🍍",
-      Beschreibung: "Alkoholfreier Super-Fruchtpunsch aus Erdbeere, Ananas, Mango und Limette; leicht spritzig.",
-      Lore: "Sanji mischte das für Luffy an windstillen Tagen – viel Energie, null Kater, passt zu „MEHR FLEISCH!“",
-      Berry: "4.800"
-    },
-    {
-      Name: "Santoryū Sake Smash 🗡️🍶",
-      Beschreibung: "Trockener Sake mit zerdrücktem Shiso, Ingwer und einem Hauch Limette, auf Eis.",
-      Lore: "Für dreifach scharfe Klingen – Sanji behauptet, die Shiso kühlt Zoros „Dämonenatem“.",
-      Berry: "6.900"
-    },
-    {
-      Name: "Mikan Mojito 🍊🌿",
-      Beschreibung: "Mandarinen-Mojito mit frischer Minze, Limette und feinem Rohrzucker; auf Wunsch alkoholfrei.",
-      Lore: "Aus Respekt vor Namis Orangenhain – süß, spritzig, und… teurer, wenn Schulden offen sind.",
-      Berry: "6.400"
-    },
-    {
-      Name: "Pop-Green Ginger Fizz 🧪🫧",
-      Beschreibung: "Hausgemachte Ingwer-Limo mit Apfel, Gurke und einem Hauch Chili; knistert wie eine neue Munition.",
-      Lore: "Sanji bastelte das während Usopps Tüfteleien – „Mut in Schlucken“, ohne Zittern in den Händen.",
-      Berry: "5.200"
-    },
-    {
-      Name: "Diable 75 🥂🔥",
-      Beschreibung: "Champagner-Highball mit Zitronenzeste, Wacholder und einer warmen Ingwerwolke. Elegant, trocken.",
-      Lore: "Sanjis eigener „Signature“ – feurig im Nachhall, aber gentleman-tauglich.",
-      Berry: "8.200"
-    },
-    {
-      Name: "Cotton-Candy Cocoa Float 🍫🍦",
-      Beschreibung: "Warmer Kakao mit Vanilleeis-Float, Zimt und Mini-Marshmallows. Alkoholfrei.",
-      Lore: "Für Nachtdienste in der Krankenstation – süß, beruhigend, macht Geweihwärme.",
-      Berry: "4.300"
-    },
-    {
-      Name: "Ohara Black Tonic 📚🖤",
-      Beschreibung: "Kalter Cold-Brew-Kaffee auf Tonic, Orangenzeste, kakaobitterer Abgang.",
-      Lore: "Eine stille Verneigung vor Ohara – klar, komplex, voller Tiefe wie alte Texte.",
-      Berry: "6.800"
-    },
-    {
-      Name: "SUPER Cola Rocket 🚀🥤",
-      Beschreibung: "Extra-spritzige Cola mit Limette, Espresso-Shot und Vanille-Schirmchen.",
-      Lore: "Treibstoff fürs Dock – Sanji schwört, Franky läuft damit leiser. Manchmal.",
-      Berry: "5.600"
-    },
-    {
-      Name: "Soul Milk Cooler 🎻🥛",
-      Beschreibung: "Gekühlte Milch mit Vanille, Muskat und einer Traubenreduktion.",
-      Lore: "„Yohoho!“ – Milch repariert Knochen, sagt Brook. Sanji macht’s stilvoll für den Gentleman-Skelettgaumen.",
-      Berry: "4.700"
-    },
-    {
-      Name: "Ryūgū Ocean Breeze 🌊🍋",
-      Beschreibung: "Yuzu-Highball mit leichter Meersalz-Note und Gurkenspirale; auch alkoholfrei verfügbar.",
-      Lore: "Für den Steuermann der Tiefe – Balance wie auf ruhiger See, Fokus im Kopf.",
-      Berry: "6.900"
-    }
-  ],
+   drinks:{
+    cocktails : [
+      {
+        Name: "Gomu-Gomu Punch 🍓🍍",
+        Beschreibung: "Alkoholfreier Super-Fruchtpunsch aus Erdbeere, Ananas, Mango und Limette; leicht spritzig.",
+        Lore: "Sanji mischte das für Luffy an windstillen Tagen – viel Energie, null Kater, passt zu „MEHR FLEISCH!“",
+        Berry: "4.800"
+      },
+      {
+        Name: "Santoryū Sake Smash 🗡️🍶",
+        Beschreibung: "Trockener Sake mit zerdrücktem Shiso, Ingwer und einem Hauch Limette, auf Eis.",
+        Lore: "Für dreifach scharfe Klingen – Sanji behauptet, die Shiso kühlt Zoros „Dämonenatem“.",
+        Berry: "6.900"
+      },
+      {
+        Name: "Mikan Mojito 🍊🌿",
+        Beschreibung: "Mandarinen-Mojito mit frischer Minze, Limette und feinem Rohrzucker; auf Wunsch alkoholfrei.",
+        Lore: "Aus Respekt vor Namis Orangenhain – süß, spritzig, und… teurer, wenn Schulden offen sind.",
+        Berry: "6.400"
+      },
+      {
+        Name: "Pop-Green Ginger Fizz 🧪🫧",
+        Beschreibung: "Hausgemachte Ingwer-Limo mit Apfel, Gurke und einem Hauch Chili; knistert wie eine neue Munition.",
+        Lore: "Sanji bastelte das während Usopps Tüfteleien – „Mut in Schlucken“, ohne Zittern in den Händen.",
+        Berry: "5.200"
+      },
+      {
+        Name: "Diable 75 🥂🔥",
+        Beschreibung: "Champagner-Highball mit Zitronenzeste, Wacholder und einer warmen Ingwerwolke. Elegant, trocken.",
+        Lore: "Sanjis eigener „Signature“ – feurig im Nachhall, aber gentleman-tauglich.",
+        Berry: "8.200"
+      },
+      {
+        Name: "Cotton-Candy Cocoa Float 🍫🍦",
+        Beschreibung: "Warmer Kakao mit Vanilleeis-Float, Zimt und Mini-Marshmallows. Alkoholfrei.",
+        Lore: "Für Nachtdienste in der Krankenstation – süß, beruhigend, macht Geweihwärme.",
+        Berry: "4.300"
+      },
+      {
+        Name: "Ohara Black Tonic 📚🖤",
+        Beschreibung: "Kalter Cold-Brew-Kaffee auf Tonic, Orangenzeste, kakaobitterer Abgang.",
+        Lore: "Eine stille Verneigung vor Ohara – klar, komplex, voller Tiefe wie alte Texte.",
+        Berry: "6.800"
+      },
+      {
+        Name: "SUPER Cola Rocket 🚀🥤",
+        Beschreibung: "Extra-spritzige Cola mit Limette, Espresso-Shot und Vanille-Schirmchen.",
+        Lore: "Treibstoff fürs Dock – Sanji schwört, Franky läuft damit leiser. Manchmal.",
+        Berry: "5.600"
+      },
+      {
+        Name: "Soul Milk Cooler 🎻🥛",
+        Beschreibung: "Gekühlte Milch mit Vanille, Muskat und einer Traubenreduktion.",
+        Lore: "„Yohoho!“ – Milch repariert Knochen, sagt Brook. Sanji macht’s stilvoll für den Gentleman-Skelettgaumen.",
+        Berry: "4.700"
+      },
+      {
+        Name: "Ryūgū Ocean Breeze 🌊🍋",
+        Beschreibung: "Yuzu-Highball mit leichter Meersalz-Note und Gurkenspirale; auch alkoholfrei verfügbar.",
+        Lore: "Für den Steuermann der Tiefe – Balance wie auf ruhiger See, Fokus im Kopf.",
+        Berry: "6.900"
+      }
+    ],
+  },
 };
 

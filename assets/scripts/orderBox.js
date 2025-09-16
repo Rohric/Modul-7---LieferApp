@@ -1,8 +1,8 @@
 let orderBox = [];
 
 // Bestell funkion
-// Bestellung finden                                        noCheck
-// bestellung speichern bzw in oderBox pushen               noCheck
+// Bestellung finden                                        Check
+// bestellung speichern bzw in oderBox pushen               Check
 // bestellung zusammenrechen                                noCheck
 //Bestellung im warenkorb erhöhen verringern bzw löschen    noCheck
 //bestellung zusammenrechnen                                noCheck
@@ -10,7 +10,10 @@ let orderBox = [];
 
 // Bestellung finden
 
-function getOrder(dataItem) {
-  orderBox.push(dataItem); // in das Array orderBox pushen
-  console.log(orderBox); // FunkionsTest
+
+
+function addToOrder (refCatalog,refCategory,refItem){
+    const item = menuCatalog[refCatalog][refCategory][refItem] // daten des Eintrages 
+    orderBox.push(item); // in das Array orderBox pushen
+    console.log(orderBox); // FunkionsTest
 }
