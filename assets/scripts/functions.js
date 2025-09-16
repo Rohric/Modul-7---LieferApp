@@ -1,5 +1,5 @@
 // render funktion zur anzeige der items
-function renderAllMainDishes() {
+function renderAllMainDishes(dataItem) {
   const refCatalogItems = document.getElementById("menuCatalogTable");
   refCatalogItems.innerHTML = "";
 
@@ -11,7 +11,7 @@ function renderAllMainDishes() {
   const itemDrinks = menuCatalog.drinks
 
   // HTML-render vorberieten(Buffer->zwischenspeicher) 
-  // Freddy fragen warum ich das nicht direkt pber refCatalogItems machen kann
+  // Freddy fragen warum ich das nicht direkt pber refCatalogItems machen
   let htmlAll = "";
 
   // Fisch anhängen

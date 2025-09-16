@@ -10,7 +10,7 @@ function templateMenuCatalog(item) {
 
                 <section class="button_catalog">
                     <small>${item.Berry} Berry</small>
-                    <button>in den korb</button>
+                    <button onclick="getOrder">in den korb</button>
                 </section>
                 
             </article>`;

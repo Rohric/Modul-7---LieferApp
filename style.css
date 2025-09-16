@@ -1,183 +1,231 @@
-/* ========== Palette (One Piece) ========== */
-:root{
-  --deep-blue:#0b1626;
-  --navy:#14243a;
-  --parchment:#f6e7c8;
-  --parchment-2:#ecd9b6;
-  --gold:#d4a94f;
-  --rope:#b38746;
-  --ink:#2b1f12;
-  --ink-soft:#4b3b2a;
+/* =======================
+   One Piece – Final CSS
+======================= */
 
-  --sea:#3db3d8;
-  --sea-deep:#2a8fb0;
-  --cream:#fff7df;
+/* --- Palette & Layout --- */
+:root {
+  --deep-blue: #0b1626;
+  --navy: #14243a;
+  --parchment: #f6e7c8;
+  --parchment-2: #ead9b8;
+  --gold: #d4a94f;
+  --rope: #b38746;
+  --ink: #2b1f12;
+  --ink-soft: #4b3b2a;
+  --sea: #3db3d8;
+  --cream: #fff7df;
+
+  --container: 1200px;
+  --gap: 24px;
+  --sticky-offset: 110px;
 }
 
-/* ========== Base ========== */
-*{box-sizing:border-box}
-html,body{margin:0;padding:0}
-img{max-width:100%;height:auto;display:block}
-button,a.button_switch{font:inherit;border:none;background:none;cursor:pointer;text-decoration:none}
+/* --- Reset/Basics --- */
+* { box-sizing: border-box; }
+html, body { margin: 0; padding: 0; }
+img { max-width: 100%; height: auto; display: block; }
+button, a {
+  font: inherit;
+  cursor: pointer;
+  text-decoration: none;
+  color: inherit;
+  border: none;
+  background: none;
+}
 
-/* Grundtypografie (piratig, aber ohne externe Fonts) */
-body{
-  color:var(--ink);
+/* Smooth Scroll */
+html { scroll-behavior: smooth; }
+
+body {
   font-family: Georgia, "Times New Roman", serif;
+  color: var(--ink);
   background:
     radial-gradient(1100px 700px at 10% -15%, rgba(61,179,216,.18), transparent 60%),
     linear-gradient(180deg, var(--deep-blue), var(--navy));
-  min-height:100svh;
+  min-height: 100svh;
 }
 
-/* ========== HEADER ========== */
-
-/* ==== HEADER: Bild zentriert, nicht scrollbar ==== */
-.switch_big_table{
-  max-width: 1200px;
-  margin: 0 auto;
-  padding: 0 16px 12px;
-
-  /* zentriert alles im Header-Block */
-  display: flex;
-  flex-direction: column;
-  align-items: center;
+/* =======================
+   HERO HEADER
+======================= */
+.main_header {
+  background: url("assets/images/titel.jpg") center/cover no-repeat;
+  height: clamp(220px, 36vw, 360px);
+  display: grid;
+  place-items: center;
+  border-bottom: 4px solid var(--gold);
+  box-shadow: 0 8px 24px rgba(0,0,0,.35);
 }
-
-/* großes Hero-Bild mittig, ohne Scrollbar */
-.switch_big_table > img{
-  display: block;
-  width: min(100%, 980px);
-  height: clamp(180px, 34vw, 320px);
-  margin: 8px auto 12px;
-  object-fit: cover;
+.hero_content {
+  text-align: center;
+  padding: 14px 20px;
   border-radius: 14px;
-  border: 3px solid var(--rope);
-  box-shadow: 0 8px 22px rgba(0,0,0,.35), inset 0 0 0 2px rgba(255,255,255,.5);
-  background: var(--cream);
-  /* wichtig: KEIN overflow hier */
+  color: #fff;
+  background: rgba(10,18,30,.55);
+  text-shadow: 0 2px 6px rgba(0,0,0,.45);
+}
+.hero_content h1 {
+  margin: 0;
+  font-variant: small-caps;
+  font-size: clamp(28px, 5vw, 48px);
+}
+.hero_content p {
+  margin: 6px 0 0;
+  font-style: italic;
 }
 
-/* ==== BUTTONS-LEISTE: nur hier horizontal scrollen ==== */
-.switch_big_table nav{
-  width: 100%;
-  overflow-x: auto;               /* nur die Leiste scrollt */
-  -webkit-overflow-scrolling: touch;
-  overscroll-behavior-inline: contain;
-  padding: 8px 0 4px;
-
-  /* zentriert, solange nichts überläuft – bei Overflow kann man scrollen */
+/* =======================
+   STICKY NAV LEISTE
+======================= */
+.menu_nav {
+  position: sticky; top: 0; z-index: 1000;
+  background: linear-gradient(180deg, var(--navy), #0b1626);
+  padding: 10px 12px;
   display: flex;
   gap: 16px;
   justify-content: center;
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
+  box-shadow: 0 6px 16px rgba(0,0,0,.35);
 }
-
-/* Gruppen-Karten in der Leiste */
-.header_menu_switch{
-  flex: 0 0 auto;                 /* verhindert Schrumpfen, gut für Scrolling */
-  min-width: 240px;
-  scroll-snap-align: start;
-
-  display: flex;
-  flex-direction: column;
-  gap: 8px;
-
+.header_menu_switch {
+  min-width: 220px;
   background: linear-gradient(180deg, var(--parchment), var(--parchment-2));
   border: 2px solid var(--rope);
   border-radius: 12px;
   padding: 10px 12px;
+  text-align: center;
   box-shadow: inset 0 1px 0 rgba(255,255,255,.6), 0 4px 12px rgba(0,0,0,.18);
 }
-
-/* Buttons in einer Row unter dem Titel */
-.header_menu_switch .button_switch{
+.switch_table { margin: 0 0 6px; font-weight: 800; color: var(--ink); }
+.button_switch {
   display: inline-flex;
   align-items: center;
   justify-content: center;
   padding: 6px 12px;
-  margin-right: 8px;
-  margin-top: 6px;
+  margin: 6px 4px 0 0;
   border-radius: 999px;
-  font-weight: 700;
   white-space: nowrap;
-
-  color: #132030;
   background: linear-gradient(180deg, #cfefff, #9fd4ec);
   border: 1px solid #79b9d4;
-  box-shadow: 0 1px 0 rgba(255,255,255,.75) inset, 0 3px 10px rgba(0,0,0,.18);
-  transition: transform .15s ease, box-shadow .15s ease, border-color .15s ease;
+  color: #132030;
+  box-shadow: 0 1px 0 rgba(255,255,255,.8) inset, 0 3px 10px rgba(0,0,0,.18);
+  transition: transform .15s, box-shadow .15s, border-color .15s;
 }
-.header_menu_switch .button_switch:hover{
+.button_switch:hover {
   transform: translateY(-1px);
   border-color: var(--sea);
-  box-shadow: 0 1px 0 rgba(255,255,255,.9) inset, 0 8px 16px rgba(0,0,0,.22);
+  box-shadow: 0 1px 0 rgba(255,255,255,.95) inset, 0 8px 16px rgba(0,0,0,.22);
 }
 
-
-/* ========== MAIN-LAYOUT: Menü links, Warenkorb rechts (sticky) ========== */
-main{
-  max-width: 1200px;
+/* =======================
+   MAIN LAYOUT
+======================= */
+main {
+  max-width: var(--container);
   margin: 20px auto;
   padding: 0 16px 24px;
   display: grid;
-  grid-template-columns: 1fr 340px;
-  gap: 24px;
+  grid-template-columns: minmax(0, 1fr) 340px;
+  gap: var(--gap);
   align-items: start;
 }
 
-/* Menü-Katalog (dein JS füllt #menuCatalogTable) */
-#menuCatalogTable{
-  display: grid;
-  gap: 16px;
-}
+/* Katalog-Bereich */
+#menuCatalogTable { display: block; }
 
-/* Karten im Pergament-/Liefer-Stil */
-.catalog_table{
-  display: grid;
-  grid-template-columns: 1fr auto;
-  gap: 12px;
+/* Abschnitts-Header */
+.catalog_section {
+  margin: 24px 0 12px;
+}
+.catalog_heading {
+  display: flex;
   align-items: center;
-  background: linear-gradient(180deg, #fff6de, #f1e2c5);
-  border: 2px solid var(--rope);
-  border-radius: 14px;
-  padding: 12px 14px;
-  box-shadow: 0 10px 24px rgba(0,0,0,.18), inset 0 0 0 2px rgba(255,255,255,.45);
-  transition: transform .2s ease, box-shadow .2s ease, border-color .2s ease;
+  justify-content: center;
+  gap: 10px;
+  margin: 0 0 12px;
+  color: #ffe9b0;
+  text-shadow: 0 1px 0 rgba(0,0,0,.35);
 }
-.catalog_table:hover{
-  transform: translateY(-2px);
-  border-color: var(--gold);
-  box-shadow: 0 14px 32px rgba(0,0,0,.26), 0 0 0 3px rgba(212,169,79,.18);
+.catalog_heading img {
+  border-radius: 8px;
+  border: 2px solid var(--gold);
+  background: #fff7df;
 }
-.catalog_item h2{ margin:0 0 6px; font-size: 20px; color: var(--ink) }
-.catalog_item p{ margin:0 0 6px; color: var(--ink-soft) }
-.catalog_item em{ color:#6b5a41 }
 
-/* Preis + Add-Button */
-.button_catalog{
-  display:flex; align-items:center; gap:10px; justify-content:flex-end;
+/* Grid für Items */
+.catalog_grid {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  align-items: center;
 }
-.button_catalog small{
-  font-weight:800; color:#1f3347; background:#e6f5ff;
-  border:1px solid #c2deef; border-radius:8px; padding:6px 8px;
+
+/* =======================
+   KATALOG-KARTEN
+======================= */
+.catalog_table {
+  display: flex;
+  flex-direction: column;
+  
+  justify-content: space-between;
+  gap: 12px;
+  width: 600px;
+
+  padding: 16px;
+  background: linear-gradient(180deg, #fffef9, #f9f0dd);
+  border: 2px solid var(--rope);
+  border-radius: 16px;
+  box-shadow: 0 6px 16px rgba(0,0,0,.15);
+  transition: transform .2s, box-shadow .2s, border-color .2s;
 }
-.button_catalog button{
-  padding:10px 14px; border-radius:12px; font-weight:800; color:#132030;
+.catalog_table:hover {
+  transform: translateY(-3px);
+  border-color: var(--gold);
+  box-shadow: 0 12px 28px rgba(0,0,0,.25);
+}
+.catalog_item h2 { margin: 0 0 8px; font-size: 22px; color: var(--ink); }
+.catalog_item p { margin: 0 0 8px; color: var(--ink-soft); line-height: 1.35; }
+.catalog_item em { color: #6b5a41; font-style: italic; }
+
+/* Preis + Button unten */
+.button_catalog {
+  margin-top: auto;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 10px;
+}
+.button_catalog small {
+  background: var(--cream);
+  padding: 6px 10px;
+  border-radius: 999px;
+  border: 1px solid #d7c8a8;
+  font-weight: 700;
+  color: #1f3347;
+}
+.button_catalog button {
+  padding: 10px 14px;
+  border-radius: 12px;
+  font-weight: 800;
+  color: #132030;
   background: linear-gradient(180deg, #ffd477, #f1c35d);
   border: 1px solid #e3b34c;
-  box-shadow: 0 1px 0 rgba(255,255,255,.7) inset, 0 6px 16px rgba(0,0,0,.18);
-  transition: transform .15s ease, box-shadow .15s ease, border-color .15s ease, opacity .15s ease;
+  box-shadow: 0 1px 0 rgba(255,255,255,.75) inset, 0 6px 16px rgba(0,0,0,.18);
+  transition: transform .15s, box-shadow .15s, border-color .15s;
 }
-.button_catalog button:hover{
+.button_catalog button:hover {
   transform: translateY(-1px);
   border-color: var(--gold);
-  box-shadow: 0 1px 0 rgba(255,255,255,.85) inset, 0 10px 22px rgba(0,0,0,.24);
+  box-shadow: 0 1px 0 rgba(255,255,255,.9) inset, 0 10px 22px rgba(0,0,0,.24);
 }
 
-/* ========== Warenkorb rechts (sticky) ========== */
-.order_box{
+/* =======================
+   WARENKORB
+======================= */
+.order_box {
   position: sticky;
-  top: 110px; /* unter dem Header/Buttons bleiben */
+  top: var(--sticky-offset);
   align-self: start;
   background: linear-gradient(180deg, #f5ead2, #eeddbb);
   border: 3px solid var(--rope);
@@ -185,45 +233,61 @@ main{
   padding: 16px;
   box-shadow: 0 12px 28px rgba(0,0,0,.25);
 }
-.order_box h2{ margin: 0 0 10px; font-size: 18px; color: var(--ink); }
-.order_box_list{ list-style:none; margin:0 0 12px; padding:0 }
-.order_box_empty{ color:#6a5842 }
-.order_box_total{
-  display:flex; justify-content:space-between; align-items:center;
-  padding:10px 0; border-top:2px dashed #c9b489; border-bottom:2px dashed #c9b489;
-  margin-bottom:12px; color:var(--ink);
+.order_box h2 { margin: 0 0 10px; font-size: 18px; color: var(--ink); }
+.order_box_list { list-style: none; margin: 0 0 12px; padding: 0; }
+.order_box_empty { color: #6a5842; }
+.order_box_total {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px 0;
+  margin-bottom: 12px;
+  border-top: 2px dashed #c9b489;
+  border-bottom: 2px dashed #c9b489;
+  color: var(--ink);
 }
-.checkout_btn{
-  width:100%; padding:10px 12px; border-radius:12px; font-weight:800;
-  color:#132030;
+.checkout_btn {
+  width: 100%;
+  padding: 10px 12px;
+  border-radius: 12px;
+  font-weight: 800;
+  color: #132030;
   background: linear-gradient(180deg, #ffd477, #f1c35d);
-  border:1px solid #e3b34c;
+  border: 1px solid #e3b34c;
   box-shadow: 0 1px 0 rgba(255,255,255,.7) inset, 0 6px 18px rgba(0,0,0,.18);
-  transition: transform .15s ease, box-shadow .15s ease, border-color .15s ease, opacity .15s ease;
+  transition: transform .15s, box-shadow .15s, border-color .15s, opacity .15s;
 }
-.checkout_btn:hover{
+.checkout_btn:hover {
   transform: translateY(-1px);
   border-color: var(--gold);
   box-shadow: 0 1px 0 rgba(255,255,255,.85) inset, 0 10px 24px rgba(0,0,0,.24);
 }
 
-/* ========== Footer ========== */
-.main_footer{
-  max-width:1200px; margin: 0 auto; padding: 16px;
-  color: #d7c7a6; text-align:center;
+/* =======================
+   FOOTER
+======================= */
+.main_footer {
+  max-width: var(--container);
+  margin: 0 auto;
+  padding: 16px;
+  color: #d7c7a6;
+  text-align: center;
   border-top: 2px dashed #c9b489;
   text-shadow: 0 1px 0 rgba(0,0,0,.25);
 }
 
-/* ========== Responsive ========== */
-@media (max-width: 1100px){
-  main{ grid-template-columns: 1fr 320px; }
+/* =======================
+   RESPONSIVE
+======================= */
+@media (max-width: 1100px) {
+  main { grid-template-columns: minmax(0, 1fr) 320px; }
 }
-@media (max-width: 980px){
-  main{ grid-template-columns: 1fr; }
-  .order_box{ position: static; margin-top: 16px; }
+@media (max-width: 980px) {
+  main { grid-template-columns: 1fr; }
+  .order_box { position: static; margin-top: var(--gap); }
 }
-@media (max-width: 640px){
-  .catalog_table{ grid-template-columns: 1fr; gap: 10px }
-  .button_catalog{ justify-content: flex-start }
+@media (max-width: 640px) {
+  .catalog_grid { grid-template-columns: 1fr; }
+  .catalog_table { gap: 10px; }
+  .button_catalog { flex-direction: column; align-items: flex-start; }
 }

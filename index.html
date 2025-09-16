@@ -1,75 +1,68 @@
 <!DOCTYPE html>
 <html lang="de">
-
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Liefer-App</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Liefer-App</title>
 
-    <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="style.css">
 
-    <script src="assets/scripts/menuCatalog.js" defer></script>
-    <script src="assets/scripts/templates.js" defer></script>
-    <script src="assets/scripts/functions.js" defer></script>
-    <script src="script.js" defer></script>
-
+  <script src="assets/scripts/menuCatalog.js" defer></script>
+  <script src="assets/scripts/templates.js" defer></script>
+  <script src="assets/scripts/functions.js" defer></script>
+  <script src="assets/scripts/orderBox.js" defer></script>
+  <script src="script.js" defer></script>
 </head>
 
 <body onload="init()">
 
-    <header class="main_header">
-        <section class="main_headline">
-            <h1>Liefer App</h1>
-            <p>Sanji's LieferHeld</p>
-        </section>
-        <section class="switch_big_table">
-            <img src="assets/images/titel.jpg" alt="Titelbild der Gerichte">
-            <nav>
-                <div class="header_menu_switch">
-                    <p class=" switch_table">Hauptgerichte</p>
-                    <a class="button_switch" href="#Fisch und Meeresfrüchte">Fisch</a>
-                    <a class="button_switch" href="#Fleisch">Fleisch</a>
-                </div>
-                <div class="header_menu_switch">
-                    <p class="switch_table">Desserts</p>
-                    <a class="button_switch" href="#Kuchen">Kuchen</a>
-                    <a class="button_switch" href="#Sorbets">Sorbet</a>
-                </div>
-                <div class="header_menu_switch">
-                    <p class="switch_table">Getränke</p>
-                    <a class="button_switch" href="#Lieblingsdrinks">Getränke</a>
-                </div>
-            </nav>
-        </section>
+  <!-- Main-Header -->
+  <header class="main_header">
+    <div class="hero_content">
+      <h1>Liefer App</h1>
+      <p>Sanji's LieferHeld</p>
+    </div>
+  </header>
 
-    </header>
+  <!-- Sticky Nav Menü -->
+  <nav class="menu_nav">
+    <div class="header_menu_switch">
+      <p class="switch_table">Hauptgerichte</p>
+      <a class="button_switch" href="#Fisch und Meeresfrüchte">Fisch</a>
+      <a class="button_switch" href="#Fleisch">Fleisch</a>
+    </div>
+    <div class="header_menu_switch">
+      <p class="switch_table">Desserts</p>
+      <a class="button_switch" href="#Kuchen">Kuchen</a>
+      <a class="button_switch" href="#Sorbets">Sorbet</a>
+    </div>
+    <div class="header_menu_switch">
+      <p class="switch_table">Getränke</p>
+      <a class="button_switch" href="#Lieblingsdrinks">Getränke</a>
+    </div>
+  </nav>
 
-    <main>
-        <section id="menuCatalogTable">
+  <main>
+    <!-- Menü Items -->
+    <section id="menuCatalogTable"></section>
 
-        </section>
+    <!-- Warenkorb (sticky) -->
+    <aside class="order_box" aria-label="Warenkorb">
+      <h2>Warenkorb</h2>
+      <ul class="order_box_list" id="orderBoxList">
+        <li class="order_box_empty">Noch leer – mach’ die Segel klar!</li>
+      </ul>
+      <div class="order_box_total">
+        <span>Summe</span>
+        <strong>0,00 €</strong>
+      </div>
+      <button class="checkout_btn">Zur Kasse</button>
+    </aside>
 
-        <!-- Warenkorb (sticky) -->
-        <section class="order_box" aria-label="Warenkorb">
-          <h2>Warenkorb</h2>
-          <ul class="order_box_list" id="orderBoxList">
-            <li class="order_box_empty">Noch leer – mach’ die Segel klar!</li>
-          </ul>
-          <div class="order_box_total">
-            <span>Summe</span>
-            <strong>0,00 €</strong>
-          </div>
-          <button class="checkout_btn">Zur Kasse</button>
-        </section>
+  </main>
 
-    </main>
-
-
-    <footer class="main_footer">
-        <small>© Emil’s verrückte Küche – Grand Line Edition</small>
-    </footer>
-
+  <footer class="main_footer">
+    <small>© Emil’s verrückte Küche – Grand Line Edition</small>
+  </footer>
 </body>
-
 </html>
-
