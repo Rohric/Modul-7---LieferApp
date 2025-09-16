@@ -11,13 +11,11 @@
 let orderBox = [];
 
 function addToOrder(refCatalog, refCategory, refItem) {
-  const item = menuCatalog[refCatalog][refCategory][refItem]; // daten des Eintrages
-  if (typeof item.Anzahl >0) 
-    item.Anzahl = 0;
-    item.Anzahl += 1;
-  
-
+  const item = menuCatalog[refCatalog][refCategory][refItem]; // daten des Eintrages nur
+  // nur item Anzahl ins array puschen bzw aktualiesieren
+  if (typeof item.Anzahl == 0);
+  item.Anzahl += 1;
+// wenn object noch nicht vorhanden ist, dann komplettes object hochpuschen, immer nur eins durch die if
   if (!orderBox.includes(item)) orderBox.push(item); // in das Array orderBox pushen
   console.log(orderBox); // FunkionsTest
-
 }
