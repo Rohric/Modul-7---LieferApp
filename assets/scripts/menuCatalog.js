@@ -107,8 +107,7 @@ const menuCatalog = {
           Lore: "Den Minks zu Ehren – „Carrot-approved“ für lange Nachtwachen auf Zunesha.",
           Berry: "6.500"
         }
-      ],
-      
+      ],    
        dessertsSorbet : [
         {
           Name: "Alabasta Oasen-Zitrus 🍋🌴",

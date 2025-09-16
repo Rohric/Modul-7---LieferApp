@@ -7,9 +7,12 @@
     <title>Liefer-App</title>
 
     <link rel="stylesheet" href="style.css">
+
+    <script src="assets/scripts/menuCatalog.js" defer></script>
     <script src="assets/scripts/templates.js" defer></script>
+    <script src="assets/scripts/functions.js" defer></script>
     <script src="script.js" defer></script>
-    <script src="assets/scripts/functions.js"></script>
+
 </head>
 
 <body onload="init()">
@@ -22,22 +25,23 @@
         <section class="switch_big_table">
             <img src="" alt="Titelbild der Gerichte">
             <nav>
-                <div class="header_menu_switch"">
+                <div class="header_menu_switch">
                     <p class=" switch_table">Hauptgerichte</p>
-                    <button class="button_switch">Fisch</button>
-                    <button class="button_switch">Fleisch</button>
+                    <a class="button_switch" href="#Fisch und Meeresfrüchte">Fisch</a>
+                    <a class="button_switch" href="#Fleisch">Fleisch</a>
                 </div>
                 <div class="header_menu_switch">
                     <p class="switch_table">Desserts</p>
-                    <button class="button_switch">Kuchen</button>
-                    <button class="button_switch">Sorbets</button>
+                    <a class="button_switch" href="#Kuchen">Kuchen</a>
+                    <a class="button_switch" href="#Sorbets">Sorbet</a>
                 </div>
                 <div class="header_menu_switch">
                     <p class="switch_table">Getränke</p>
-                    <button class="button_switch">Getränke</button>
+                    <a class="button_switch" href="#Lieblingsdrinks">Getränke</a>
                 </div>
             </nav>
         </section>
+
     </header>
 
     <main>
@@ -47,12 +51,12 @@
 
     </main>
 
-    <footer>
-        <footer class="main_footer">
-            <small>© Emil’s verrückte Küche – Grand Line Edition</small>
-        </footer>
-</body>
-</footer>
+
+    <footer class="main_footer">
+        <small>© Emil’s verrückte Küche – Grand Line Edition</small>
+    </footer>
+
 </body>
 
 </html>
+

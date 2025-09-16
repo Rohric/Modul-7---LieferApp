@@ -1,4 +1,4 @@
-function init(){
-    getCatalogListFor()
-
-}
+function init() {
+    renderAllMainDishes();
+  }
+  
