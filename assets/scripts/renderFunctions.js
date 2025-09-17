@@ -16,7 +16,7 @@ function renderAllMainDishes() {
   // Fisch anhängen
   htmlAll += templateSectionStart(
     "Hauptgerichte",
-    "Fisch und Meeresfrüchte",
+    "Fisch&Meeresfrüchte",
     "assets/images/fisch.jpg"
   );
   for (let indexDish = 0; indexDish < itemFish.length; indexDish++) {
