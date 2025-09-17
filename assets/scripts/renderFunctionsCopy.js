@@ -45,12 +45,12 @@ const sections = [
 
 // render funktion zur anzeige der items
 function renderAllMainDishes() {
-  const refCatalogItems = document.getElementById("menuCatalogTable");
+  const refCatalogItems = document.getElementById('menuCatalogTable');
   refCatalogItems.innerHTML = "";
 
   // HTML-render vorberieten(Buffer->zwischenspeicher)
 
-  let htmlAll = '';
+  let htmlAll = "";
   for (const s of sections) {
     // KORREKT: id, refCatalog, refCategory, img
     htmlAll += templateSectionStart(s.id, s.refCatalog, s.refCategory, s.img);

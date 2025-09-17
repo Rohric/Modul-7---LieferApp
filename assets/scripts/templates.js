@@ -29,7 +29,8 @@ function templateMenuCatalog(catalogDish, refFunction) {
 }
 
 // Templatefunkion zur Anzeige des Warenkorbes
-function templateOrderBox(refOrder, refFunction) {
+function templateOrderBox(refOrder, clickAdd,clickDelete,clickRemove) {
+
   const menge = Number(refOrder.Anzahl); // Menge als Zahl
   const preis = Number(refOrder.Berry); // Preis als Zahl
   const zwischensumme = menge * preis; // Menge × Preis
@@ -39,9 +40,9 @@ function templateOrderBox(refOrder, refFunction) {
   <li class="order_box_item">
       <h3 class="order_title">${refOrder.Name}</h3>       
 
-        <button>hinzufügen</button>
-        <button onclick="${refFunction}">entfernen</button>
-        <button>löschen</button>
+        <button onclick="${clickAdd}">hinzufügen</button>
+        <button onclick="${clickRemove}">entfernen</button>
+        <button onclick="${clickDelete}">löschen</button>
    
       <ul class="order_points">                             
         <li>Menge: × ${refOrder.Anzahl}</li>
