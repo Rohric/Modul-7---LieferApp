@@ -9,7 +9,6 @@
 let orderBox = [];
 let total = "";
 
-
 // Rendering vom WarenKorb-OrderBox / zusatz wäre eine zusätzliche sortierung
 function renderOrderBox() {
   const refOrderFromBox = document.getElementById("orderBoxList");
@@ -34,7 +33,7 @@ function renderOrderBox() {
 function addToOrder(refCatalog, refCategory, refItem) {
   const item = menuCatalog[refCatalog][refCategory][refItem]; // daten des Eintrages
 
-  // wenn object noch nicht vorhanden ist, dann komplettes object hochpuschen, immer nur eins durch die if
+  // wenn object noch nicht vorhanden ist, dann komplettes object hochpuschen
   if (!orderBox.includes(item)) orderBox.push(item); // in das Array orderBox pushen
   // nur item Anzahl ins array puschen bzw aktualiesieren
   item.Anzahl += 1;
@@ -42,7 +41,6 @@ function addToOrder(refCatalog, refCategory, refItem) {
   renderOrderBox();
   orderMath();
 }
-
 
 // function zum erhöhen der Anzahl im Warenkorb
 function increaseFromOrder(order){
@@ -71,8 +69,8 @@ function deleteOrder(order){
   renderOrderBox();
   orderMath();
   console.log(orderBox); // FunkionsTest
-
 }
+
 // checkout, dialog öffnen und alles löschen
 function checkout() {
   // Alle Warenkorb-Items zurücksetzen
@@ -80,15 +78,12 @@ function checkout() {
     const item = orderBox[index];
     item.Anzahl = 0;
   }
-
   //Warenkorb leeren
  orderBox.splice(0, orderBox.length)
 
-  // 3) UI aktualisieren
   renderOrderBox();
   orderMath();
 }
-
 
 // Die Berechnung für den totalen Preis
 function orderMath() {
