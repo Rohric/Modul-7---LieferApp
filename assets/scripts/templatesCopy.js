@@ -10,7 +10,7 @@ function templateSectionStart(sectionId, refCatalog, refCategory, img) {
 }
 
 // Templatefunkion zur Anzeige der einzelnen Catalog Einträgen
-function templateMenuCatalog(catalogDish, refFunction) {
+function templateMenuCatalog(catalogDish, refonClickFor) {
   return ` <article class="catalog_table ">
 
                 <section class="catalog_item">
@@ -21,7 +21,7 @@ function templateMenuCatalog(catalogDish, refFunction) {
 
                 <section class="button_catalog">
                     <small>${catalogDish.Berry} Berry</small>
-                    <button onclick="${refFunction}">in den korb</button>
+                    <button onclick="${refonClickFor}">in den korb</button>
                 </section>
                 
             </article>`;

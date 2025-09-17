@@ -3,11 +3,11 @@
 const sections = [
   { 
     id: 'Fisch&Meeresfrüchte',                      // eindeutige ID (für Anker)
-    refCatalog: 'Hauptgerichte',                    // große Überschrift
-    refCategory: 'Fisch&Meeresfrüchte',             // Untertitel
-    img: 'assets/images/fisch.jpg',                 // Bild der 
+    refCatalog: 'Hauptgerichte',                    // welcher Katalog also bereich im array
+    refCategory: 'Fisch&Meeresfrüchte',             // welche Category, für template
+    img: 'assets/images/fisch.jpg',                 // Bild der c´kategorien
     refDish: menuCatalog.mainDishes.fishDishes,     // Quelle der Dish im Array
-    onClickFor: (i) => `addToOrder('mainDishes','fishDishes',${i})`
+    onClickFor: (i) => `addToOrder('mainDishes','fishDishes',${i})` // index vom button
   },
   { 
     id: 'Fleisch',
@@ -43,8 +43,6 @@ const sections = [
   }
 ];
 
-
-
 // render funktion zur anzeige der items
 function renderAllMainDishes() {
   const refCatalogItems = document.getElementById("menuCatalogTable");
@@ -62,9 +60,6 @@ function renderAllMainDishes() {
       const item = s.refDish[idx];
       htmlAll += templateMenuCatalog(item, s.onClickFor(idx));
     }
-  
-    // Section schließen (du hattest das bisher nicht)
-    htmlAll += '</section>';
   }
   refCatalogItems.innerHTML = htmlAll;
 }

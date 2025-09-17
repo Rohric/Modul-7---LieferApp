@@ -1,9 +1,9 @@
 // render funktion zur anzeige der items
 function renderAllMainDishes() {
-  const refCatalogItems = document.getElementById("menuCatalogTable");
+  const refCatalogItems = document.getElementById('menuCatalogTable');
   refCatalogItems.innerHTML = "";
 
-  // Items aus dem Array holen und definieren um später darauf zuzugreifen zb für die buttons oder filter #plk
+  // Items aus dem Array holen und definieren um später für das irritieren zugriff zu haben
   const itemFish = menuCatalog.mainDishes.fishDishes;
   const itemMeat = menuCatalog.mainDishes.meatDishes;
   const itemCake = menuCatalog.desserts.dessertsCake;
