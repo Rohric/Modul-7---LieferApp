@@ -35,7 +35,7 @@ function renderAllMainDishes() {
   );
   for (let indexDish = 0; indexDish < itemMeat.length; indexDish++) {
     const catalogItem = itemMeat[indexDish];
-    htmlAll += templateMenuCatalog(catalogItem);
+    htmlAll += templateMenuCatalog(catalogItem,`addToOrder('mainDishes','meatDishes',${indexDish})`);
   }
 
   // Kuchen anhängen
@@ -46,7 +46,9 @@ function renderAllMainDishes() {
   );
   for (let indexDish = 0; indexDish < itemCake.length; indexDish++) {
     const catalogItem = itemCake[indexDish];
-    htmlAll += templateMenuCatalog(catalogItem);
+    htmlAll += templateMenuCatalog(catalogItem,
+      `addToOrder('desserts','dessertsCake',${indexDish})`
+    );
   }
 
   // Sorbet anhängen
@@ -57,7 +59,9 @@ function renderAllMainDishes() {
   );
   for (let indexDish = 0; indexDish < itemSorbet.length; indexDish++) {
     const catalogItem = itemSorbet[indexDish];
-    htmlAll += templateMenuCatalog(catalogItem);
+    htmlAll += templateMenuCatalog(catalogItem,
+      `addToOrder('desserts','dessertsSorbet',${indexDish})`
+    );
   }
 
   // Cocktails anhängen
@@ -68,7 +72,9 @@ function renderAllMainDishes() {
   );
   for (let indexDish = 0; indexDish < itemDrinks.length; indexDish++) {
     const catalogItem = itemDrinks[indexDish];
-    htmlAll += templateMenuCatalog(catalogItem);
+    htmlAll += templateMenuCatalog(catalogItem,
+      `addToOrder('drinks','cocktails',${indexDish})`
+    );
   }
 
   // über DOM ins HTML übergebn
