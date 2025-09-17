@@ -29,7 +29,11 @@ function templateMenuCatalog(catalogDish, refFunction) {
 }
 
 // Templatefunkion zur Anzeige des Warenkorbes
-function templateOrderBox(refOrder,refFunction) {
+function templateOrderBox(refOrder, refFunction) {
+  const menge = Number(refOrder.Anzahl); // Menge als Zahl
+  const preis = Number(refOrder.Berry); // Preis als Zahl
+  const zwischensumme = menge * preis; // Menge × Preis
+
   return `
   
   <li class="order_box_item">
@@ -42,6 +46,7 @@ function templateOrderBox(refOrder,refFunction) {
       <ul class="order_points">                             
         <li>Menge: × ${refOrder.Anzahl}</li>
         <li>Einzelpreis: ${refOrder.Berry} Berry</li>
+         <li>Zwischensumme: ${zwischensumme} Berry</li>
       </ul>
     </li>
   `;

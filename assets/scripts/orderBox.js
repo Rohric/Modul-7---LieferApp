@@ -45,6 +45,7 @@ function reduceFromOrder(orders) {
   orderMath();
 }
 
+// Die Berechnung für den totalen Preis
 function orderMath() {
   const refOrderSum = document.getElementById("orderSumme");
   total = 0;
