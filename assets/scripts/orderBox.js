@@ -1,10 +1,3 @@
-// Bestell funkion
-// Bestellung finden                                        Check
-// bestellung speichern bzw in oderBox pushen               Check
-// bestellung zusammenrechen                                noCheck
-// Bestellung im warenkorb erhöhen verringern bzw löschen   Check
-// bestellung zusammenrechnen                                noCheck
-// zur kasse mit dialog aus mit dankes text                  noCheck
 
 let orderBox = [];
 let total = "";

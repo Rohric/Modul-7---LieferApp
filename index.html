@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="de">
+
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -53,7 +54,7 @@
       <ul class="order_box_list" id="orderBoxList">
         <li class="order_box_empty">Noch leer – mach’ die Segel klar!</li>
       </ul>
-      
+
       <div class="order_box_total">
         <span>Summe</span>
         <strong id="orderSumme">0</strong>
@@ -67,20 +68,25 @@
     <small>© Emil’s verrückte Küche – Grand Line Edition</small>
   </footer>
 
-  <dialog id="dialog1">
+  <dialog class = "dialog_checkout" id="dialogCheckout">
     <header>
-        <h2>Danke für deine Test Bestellung</h2>
+      <h2>Danke für deine Test Bestellung</h2>
     </header>
 
     <section>
-        <p>Deine Test-Bestellung wurde bearbeitet.</p>
+      <p>Deine Test-Bestellung wurde bearbeitet.</p>
     </section>
 
     <footer>
-        <button onclick="closeDialog()">Schließen</button>
+      <button class="checkout_btn" onclick="closeDialog()">Schließen</button>
     </footer>
-</dialog>
+  </dialog>
 
 
 </body>
+
 </html>
+
+
+
+

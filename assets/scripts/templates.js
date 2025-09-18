@@ -2,12 +2,12 @@
 function templateSectionStart(refCategory, img, refCatalog) {
   return `
     <section class="catalog_section" id="${refCategory}">
-      <header class="catalog_heading">
-        <img src="${img}" alt="${refCatalog}" width="56" height="56">
-        <h2 id="${refCategory}-title">${refCategory}</h2>
+      <header class="catalog_header" style="--bg-image: url('${img}')">
+        <h2 class="catalog_title">${refCategory}</h2>
       </header>
   `;
 }
+
 
 // Templatefunkion zur Anzeige der einzelnen Catalog Einträgen
 function templateMenuCatalog(catalogDish, refFunction) {
@@ -40,9 +40,11 @@ function templateOrderBox(refOrder, clickAdd,clickDelete,clickRemove) {
   <li class="order_box_item">
       <h3 class="order_title">${refOrder.Name}</h3>       
 
-        <button onclick="${clickAdd}">hinzufügen</button>
-        <button onclick="${clickRemove}">entfernen</button>
-        <button onclick="${clickDelete}">löschen</button>
+      <div class="order_menu">
+        <button class="order_buttons" onclick="${clickAdd}">➕</button>
+        <button class="order_buttons" onclick="${clickRemove}">➖</button>
+        <button class="order_buttons" onclick="${clickDelete}">🗑</button>
+      </div>
    
       <ul class="order_points">                             
         <li>Menge: × ${refOrder.Anzahl}</li>
