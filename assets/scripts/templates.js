@@ -21,7 +21,7 @@ function templateMenuCatalog(catalogDish, refFunction) {
         </section>
 
         <section class="button_catalog">
-            <small>${catalogDish.Berry} Berry</small>
+            <small>${formatBerry(catalogDish.Berry)}</small>
             <button onclick="${refFunction}">in den korb</button>
         </section>
                 
@@ -46,8 +46,8 @@ function templateOrderBox(refOrder, clickAdd,clickDelete,clickRemove) {
    
       <ul class="order_points">                             
         <li>Menge: × ${refOrder.Anzahl}</li>
-        <li>Einzelpreis: ${refOrder.Berry} Berry</li>
-         <li>Zwischensumme: ${zwischensumme} Berry</li>
+        <li>Einzelpreis: ${formatBerry(preis)}</li>
+        <li>Zwischensumme: ${formatBerry(zwischensumme)}</li>
       </ul>
     </li>
   `;

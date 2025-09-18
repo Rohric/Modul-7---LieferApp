@@ -108,9 +108,17 @@ function orderMath() {
     const price = Number(order.Berry);
     total += amount * price;
   }
-  if (refOrderSum) refOrderSum.textContent = total;
+  if (refOrderSum) refOrderSum.textContent =formatBerry(total);
   return total;
 }
 function closeDialog(){
   dialogRef.close()
+}
+
+function formatBerry(wert) {
+  const nummer = Number(wert);
+  return new Intl.NumberFormat('de-DE', {
+    minimumFractionDigits: 2,
+    maximumFractionDigits: 2
+  }).format(nummer) + ' Berry';
 }
