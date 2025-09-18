@@ -15,6 +15,8 @@
   --sea: #3db3d8;
   --cream: #fff7df;
 
+  --nav-height: 56px;
+
   --container: 1200px;
   --gap: 24px;
   --sticky-offset: 110px;
@@ -155,14 +157,14 @@ main {
   max-width: var(--container);
   margin: 20px auto;
   padding: 0 16px 24px;
-display: flex;
-justify-content: center;
+  display: flex;
+  justify-content: center;
   gap: 16px;
   align-items: start;
 }
 
 /* Katalog-Bereich */
-#menuCatalogTable {
+.menuCatalogTable {
   display: flex;
   justify-content: flex-end;
 
@@ -171,6 +173,7 @@ justify-content: center;
 /* Abschnitts-Header */
 .catalog_section {
   margin: 24px 0 12px;
+  scroll-margin-top: calc(var(--nav-height) + 60px);
 }
 
 .catalog_header {
@@ -180,8 +183,8 @@ justify-content: center;
   gap: 10px;
   margin: 0 0 12px;
   color: var(--gold);
-  text-shadow: 0 1px 0 rgba(0, 0, 0, .35);
-  
+  text-shadow: 0 1px 0 rgba(49, 31, 31, 0.35);
+
   background-color: var(--cream);
   border: 2px solid var(--rope);
   border-radius: 16px;
@@ -243,9 +246,20 @@ justify-content: center;
 }
 
 .catalog_item em {
-  color:  var(--rope);
+  color: var(--rope);
   font-style: italic;
 }
+
+.catalog_title {
+  color: var(--gold);
+  text-shadow:
+    0 1px 2px rgba(0, 0, 0, .55),
+    0 0 3px rgba(0, 0, 0, .35),
+    1px 0 2px rgba(0, 0, 0, .45),
+    -1px 0 2px rgba(0, 0, 0, .45);
+}
+
+
 
 /* Preis + Button unten */
 .button_catalog {
@@ -341,7 +355,7 @@ justify-content: center;
   box-shadow: 0 1px 0 rgba(255, 255, 255, .85) inset, 0 10px 24px rgba(0, 0, 0, .24);
 }
 
-.order_menu{
+.order_menu {
   display: flex;
   justify-content: space-between;
 }
@@ -380,39 +394,27 @@ justify-content: center;
 /* =======================
    Dialog
 ======================= */
-.dialog_checkout{
-  display: flex;
-  flex-direction: column;
-  margin: 16px;
-
-  justify-content: space-between;
-  gap: 12px;
-  width: 600px;
-
-  padding: 16px;
-  background: linear-gradient(180deg, var(--gold), var(--cream));
-  border: 2px solid var(--rope);
-  border-radius: 16px;
-  box-shadow: 0 6px 16px rgba(0, 0, 0, .15);
+.dialog_1 {
+  border: 5px solid var(--rope);
+  transform: translateX(300px);
 
 }
 
-.dialog_checkout_{
-  width: 100%;
-  padding: 10px 12px;
-  border-radius: 12px;
-  font-weight: 800;
-  color: #132030;
-  background: linear-gradient(180deg, #ffd477, #f1c35d);
-  border: 1px solid #e3b34c;
-  box-shadow: 0 1px 0 rgba(255, 255, 255, .7) inset, 0 6px 18px rgba(0, 0, 0, .18);
-  transition: transform .15s, box-shadow .15s, border-color .15s, opacity .15s;
+.dialog_1.opened {
+  border: 5px solid var(--rope);
+
 }
 
-.dialog_checkout_:hover {
-  transform: translateY(-1px);
-  border-color: var(--gold);
-  box-shadow: 0 1px 0 rgba(255, 255, 255, .85) inset, 0 10px 24px rgba(0, 0, 0, .24);
+
+.dialog_1::backdrop {
+  opacity: 0;
+  background-color: rgba(0, 0, 0, );
+
+}
+
+.dialog_1.opened::backdrop {
+  opacity: 1;
+
 }
 
 /* =======================
