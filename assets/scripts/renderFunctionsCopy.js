@@ -48,6 +48,8 @@ function renderAllMainDishes() {
   const refCatalogItems = document.getElementById('menuCatalogTable');
   refCatalogItems.innerHTML = "";
 
+
+
   // HTML-render vorberieten(Buffer->zwischenspeicher)
 
   let htmlAll = "";                         // Sammel-String: hier hänge ich alles HTML an
