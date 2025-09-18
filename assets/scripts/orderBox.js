@@ -11,7 +11,7 @@ function renderOrderBox() {
     refOrderFromBox.innerHTML = `
       <li class="order_box_empty">Noch leer – mach’ die Segel klar!</li>
     `;
-    return; // fertig
+    return; 
   }
 
   for (let order = 0; order < orderBox.length; order++) {
@@ -39,29 +39,26 @@ function addToOrder(refCatalog, refCategory, refItem) {
 function increaseFromOrder(order) {
   const item = orderBox[order]; 
   item.Anzahl += 1;
-  console.log(orderBox); 
   renderOrderBox();
   calculateTotalPrice();
 }
 // Item in OrderBox minus one
 function reduceFromOrder(order) {
-  const item = orderBox[order]; // daten des Eintrages
+  const item = orderBox[order]; // data from order in orderBox
   item.Anzahl -= 1;
-  if (item.Anzahl === 0) orderBox.splice(order, 1); // Aus dem Array slicen
+  if (item.Anzahl === 0) orderBox.splice(order, 1); // slice from Array away
 
-  console.log(orderBox); // FunkionsTest
   renderOrderBox();
   calculateTotalPrice();
 }
 // Item in OrderBox delete complete
 function deleteOrder(order) {
-  const item = orderBox[order]; // daten des Eintrages
+  const item = orderBox[order]; // data from order in orderBox
   item.Anzahl = 0;
-  orderBox.splice(order, 1); // Aus dem Array slicen
+  orderBox.splice(order, 1); // slice from Array away
 
   renderOrderBox();
   calculateTotalPrice();
-  console.log(orderBox); // FunkionsTest
 }
 
 // open checkout Dialog and delete all in orderBox

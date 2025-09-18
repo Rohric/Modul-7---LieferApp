@@ -112,7 +112,7 @@ html {
   padding: 10px 12px;
   display: flex;
   gap: 16px;
-  justify-content: flex-start;
+  justify-content: center;
   overflow-x: auto;
   -webkit-overflow-scrolling: touch;
   box-shadow: 0 6px 16px rgba(0, 0, 0, .35);
@@ -451,20 +451,20 @@ main {
   }
 }
 
-/* Handy-Nav bis 600px */
+
 @media (max-width: 600px) {
   .header_menu_switch {
-    min-width: 140px;   /* etwas schmaler */
-    padding: 6px 8px;   /* weniger Padding */
+    min-width: 140px; 
+    padding: 6px 8px;
   }
 
   .switch_table {
-    font-size: 14px;    /* Überschrift kleiner */
+    font-size: 14px;  
   }
 
   .button_switch {
-    font-size: 13px;    /* Buttons kleiner */
-    padding: 4px 8px;   /* weniger Platz um Text */
+    font-size: 13px; 
+    padding: 4px 8px;
     margin: 4px 4px 0 0;
   }
 }
@@ -483,6 +483,10 @@ main {
     font-size: 12px;
     padding: 3px 6px;
     margin: 10px;
+  }
+  .menu_nav{
+  justify-content: flex-start;
+
   }
 
 }
