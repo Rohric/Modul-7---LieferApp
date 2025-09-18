@@ -1,12 +1,12 @@
 let orderBox = [];
 let total = "";
 
-// Rendering vom WarenKorb-OrderBox / zusatz wäre eine zusätzliche sortierung
+// Rendering the OrderBox
 function renderOrderBox() {
   const refOrderFromBox = document.getElementById("orderBoxList");
   let orders = "";
 
-  // wenn leer dann part aus html anzeigen
+  // if orderBox is empty show this
   if (orderBox.length === 0) {
     refOrderFromBox.innerHTML = `
       <li class="order_box_empty">Noch leer – mach’ die Segel klar!</li>
@@ -17,39 +17,33 @@ function renderOrderBox() {
   for (let order = 0; order < orderBox.length; order++) {
     const refOrder = orderBox[order];
 
-    const clickAdd = `increaseFromOrder(${order})`; // Anzahl ++
-    const clickRemove = `reduceFromOrder(${order})`; // Anzahl --
-    const clickDelete = `deleteOrder(${order})`; // sofort löschen
-
-    // const clickCheckout = `deleteOrder(${order})`;       // checkout, dialog öffnen und alles löschen
+    const clickAdd = `increaseFromOrder(${order})`; 
+    const clickRemove = `reduceFromOrder(${order})`;
+    const clickDelete = `deleteOrder(${order})`; 
 
     orders += templateOrderBox(refOrder, clickAdd, clickDelete, clickRemove);
   }
   refOrderFromBox.innerHTML = orders;
 }
 
-// Disch zu Warenkorb hinzufüren - funioniert
+// add selected Dish tomorderBox
 function addToOrder(refCatalog, refCategory, refItem) {
-  const item = menuCatalog[refCatalog][refCategory][refItem]; // daten des Eintrages
-
-  // wenn object noch nicht vorhanden ist, dann komplettes object hochpuschen
-  if (!orderBox.includes(item)) orderBox.push(item); // in das Array orderBox pushen
-  // nur item Anzahl ins array puschen bzw aktualiesieren
+  const item = menuCatalog[refCatalog][refCategory][refItem];
+  if (!orderBox.includes(item)) orderBox.push(item); 
   item.Anzahl += 1;
-  // console.log(orderBox); // FunkionsTest
   renderOrderBox();
-  orderMath();
+  calculateTotalPrice();
 }
 
-// function zum erhöhen der Anzahl im Warenkorb
+// Item in OrderBox plus one
 function increaseFromOrder(order) {
-  const item = orderBox[order]; // daten des Eintrages
+  const item = orderBox[order]; 
   item.Anzahl += 1;
-  console.log(orderBox); // FunkionsTest
+  console.log(orderBox); 
   renderOrderBox();
-  orderMath();
+  calculateTotalPrice();
 }
-// function zum verringern der Anzahl im Warenkorb
+// Item in OrderBox minus one
 function reduceFromOrder(order) {
   const item = orderBox[order]; // daten des Eintrages
   item.Anzahl -= 1;
@@ -57,40 +51,47 @@ function reduceFromOrder(order) {
 
   console.log(orderBox); // FunkionsTest
   renderOrderBox();
-  orderMath();
+  calculateTotalPrice();
 }
-// function zum Löschen der gesamten Anzahl der einzelen Dish im Warenkorb
+// Item in OrderBox delete complete
 function deleteOrder(order) {
   const item = orderBox[order]; // daten des Eintrages
   item.Anzahl = 0;
   orderBox.splice(order, 1); // Aus dem Array slicen
 
   renderOrderBox();
-  orderMath();
+  calculateTotalPrice();
   console.log(orderBox); // FunkionsTest
 }
 
-// checkout, dialog öffnen und alles löschen4
+// open checkout Dialog and delete all in orderBox
 const dialogRef = document.getElementById("dialogCheckout");
 
 function checkout() {
 
   dialogRef.showModal();
   dialogRef.classList.add('opened')
-  // Alle Warenkorb-Items zurücksetzen
+  // all orderBox Items set Amount/Anzahl to 0
   for (let index = 0; index < orderBox.length; index++) {
     const item = orderBox[index];
     item.Anzahl = 0;
   }
-  //Warenkorb leeren
+  // emty complete orderBox
   orderBox.splice(0, orderBox.length);
 
   renderOrderBox();
-  orderMath();
+  calculateTotalPrice();
 }
 
-// Die Berechnung für den totalen Preis
-function orderMath() {
+// close checkoutDialog
+function closeDialog() {
+  dialogRef.close();
+  dialogRef.classList.remove("opened");
+}
+
+
+// Math for the total price
+function calculateTotalPrice() {
   const refOrderSum = document.getElementById("orderSumme");
   total = 0;
 
@@ -103,7 +104,7 @@ function orderMath() {
   if (refOrderSum) refOrderSum.textContent = formatBerry(total);
   return total;
 }
-
+// format price in germanFormat
 function formatBerry(wert) {
   const nummer = Number(wert);
   return (
@@ -114,7 +115,3 @@ function formatBerry(wert) {
   );
 }
 
-function closeDialog() {
-  dialogRef.close();
-  dialogRef.classList.remove("opened");
-}

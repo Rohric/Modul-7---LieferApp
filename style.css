@@ -16,13 +16,16 @@
   --cream: #fff7df;
 
   --nav-height: 56px;
-
+  --nav-offset: 72px;
   --container: 1200px;
   --gap: 24px;
   --sticky-offset: 110px;
 }
 
-/* --- Reset/Basics --- */
+
+/* =======================
+        Reset/Basics
+======================= */
 * {
   box-sizing: border-box;
 }
@@ -47,11 +50,6 @@ a {
   background: none;
 }
 
-/* Smooth Scroll */
-html {
-  scroll-behavior: smooth;
-}
-
 body {
   font-family: Georgia, "Times New Roman", serif;
   color: var(--ink);
@@ -61,8 +59,15 @@ body {
   min-height: 100svh;
 }
 
+/* Smooth Scroll */
+html {
+  scroll-behavior: smooth;
+}
+
+
+
 /* =======================
-   HERO HEADER
+        HERO HEADER
 ======================= */
 .main_header {
   background: url("assets/images/titel.jpg") center/cover no-repeat;
@@ -97,7 +102,7 @@ body {
 }
 
 /* =======================
-   STICKY NAV LEISTE
+        NAV LEISTE
 ======================= */
 .menu_nav {
   position: sticky;
@@ -107,7 +112,7 @@ body {
   padding: 10px 12px;
   display: flex;
   gap: 16px;
-  justify-content: center;
+  justify-content: flex-start;
   overflow-x: auto;
   -webkit-overflow-scrolling: touch;
   box-shadow: 0 6px 16px rgba(0, 0, 0, .35);
@@ -151,7 +156,7 @@ body {
 }
 
 /* =======================
-   MAIN LAYOUT
+       MAIN LAYOUT
 ======================= */
 main {
   max-width: var(--container);
@@ -163,14 +168,12 @@ main {
   align-items: start;
 }
 
-/* Katalog-Bereich */
 .menuCatalogTable {
   display: flex;
   justify-content: flex-end;
 
 }
 
-/* Abschnitts-Header */
 .catalog_section {
   margin: 24px 0 12px;
   scroll-margin-top: calc(var(--nav-height) + 60px);
@@ -198,13 +201,7 @@ main {
   border: 2px solid var(--gold);
 }
 
-/* Grid für Items */
-.catalog_grid {
-  display: flex;
-  flex-direction: column;
-  gap: 16px;
-  align-items: center;
-}
+
 
 /* =======================
    KATALOG-KARTEN
@@ -261,7 +258,6 @@ main {
 
 
 
-/* Preis + Button unten */
 .button_catalog {
   margin-top: auto;
   display: flex;
@@ -303,6 +299,11 @@ main {
   position: sticky;
   top: var(--sticky-offset);
   align-self: start;
+
+  display: flex;
+  flex-direction: column;
+  max-height: calc(100vh - var(--nav-height, 72px) - 64px);
+
   background: linear-gradient(180deg, #f5ead2, #eeddbb);
   border: 3px solid var(--rope);
   border-radius: 14px;
@@ -310,10 +311,18 @@ main {
   box-shadow: 0 12px 28px rgba(0, 0, 0, .25);
 }
 
+.order_box_list{
+  flex: 1 1 auto;   /* nimmt den verfügbaren Platz */
+  min-height: 0;    /* wichtig: erlaubt overflow in Flex-Containern */
+  overflow: auto;   /* zeigt Scrollbar, wenn zu lang */
+  overscroll-behavior: contain;
+}
+
 .order_box h2 {
   margin: 0 0 10px;
-  font-size: 18px;
-  color: var(--ink);
+  font-size: 22px;
+  color: var(--gold);
+  text-shadow: 0 0px 16px var(--gold);
 }
 
 .order_box_list {
@@ -420,56 +429,60 @@ main {
 /* =======================
    RESPONSIVE
 ======================= */
-@media (max-width: 1100px) {
-  main {
-    grid-template-columns: minmax(0, 1fr) 320px;
-  }
-}
-
-@media (max-width: 980px) {
-  main {
-    grid-template-columns: 1fr;
+@media (max-width: 900px){
+  main{
+    display: flex;           
+    flex-direction: column;  
+    gap: var(--gap);
+    align-items: stretch;
   }
 
-  .order_box {
+  /* Warenkorb ent-sticky-en  */
+  .order_box{
     position: static;
+    width: 100%;
     margin-top: var(--gap);
+    flex: 0 0 auto;
+  }
+
+  .catalog_table{
+    width: 100%;
+    margin-inline: auto;
   }
 }
 
-@media (max-width: 640px) {
-  .catalog_grid {
-    grid-template-columns: 1fr;
+/* Handy-Nav bis 600px */
+@media (max-width: 600px) {
+  .header_menu_switch {
+    min-width: 140px;   /* etwas schmaler */
+    padding: 6px 8px;   /* weniger Padding */
   }
 
-  .catalog_table {
-    gap: 10px;
+  .switch_table {
+    font-size: 14px;    /* Überschrift kleiner */
   }
 
-  .button_catalog {
-    flex-direction: column;
-    align-items: flex-start;
+  .button_switch {
+    font-size: 13px;    /* Buttons kleiner */
+    padding: 4px 8px;   /* weniger Platz um Text */
+    margin: 4px 4px 0 0;
   }
 }
 
+@media (max-width: 320px) {
+  .header_menu_switch {
+    min-width: 100px;   
+    padding: 8px 6px;
+  }
 
-.order_box_item {
-  padding: 8px 0;
-  border-bottom: 1px solid #ddd;
-}
+  .switch_table {
+    font-size: 12px;
+  }
 
-.order_title {
-  margin: 0 0 4px;
-  font-size: 1rem;
-  line-height: 1.2;
-}
+  .button_switch {
+    font-size: 12px;
+    padding: 3px 6px;
+    margin: 10px;
+  }
 
-.order_points {
-  margin: 0;
-  padding-left: 1.2rem;
-  list-style: disc;
-}
-
-.order_points li {
-  margin: 2px 0;
 }

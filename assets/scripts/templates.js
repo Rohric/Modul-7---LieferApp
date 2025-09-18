@@ -1,4 +1,4 @@
-// Templatefunkion zur Anzeige des start und end Bereiches
+// Templatefunction to show Header from each Section
 function templateSectionStart(refCategory, img, refCatalog) {
   return `
     <section class="catalog_section" id="${refCategory}">
@@ -9,7 +9,7 @@ function templateSectionStart(refCategory, img, refCatalog) {
 }
 
 
-// Templatefunkion zur Anzeige der einzelnen Catalog Einträgen
+// Templatefunction to show each segment from Catalog
 function templateMenuCatalog(catalogDish, refFunction) {
   return `
   <article class="catalog_table ">
@@ -28,12 +28,12 @@ function templateMenuCatalog(catalogDish, refFunction) {
   </article>`;
 }
 
-// Templatefunkion zur Anzeige des Warenkorbes
+// Templatefunction to show orderBox
 function templateOrderBox(refOrder, clickAdd,clickDelete,clickRemove) {
 
-  const menge = Number(refOrder.Anzahl); // Menge als Zahl
-  const preis = Number(refOrder.Berry); // Preis als Zahl
-  const zwischensumme = menge * preis; // Menge × Preis
+  const menge = Number(refOrder.Anzahl); // Number is from JS. string to number
+  const preis = Number(refOrder.Berry); // 
+  const zwischensumme = menge * preis; // 
 
   return `
   
