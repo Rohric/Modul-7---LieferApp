@@ -14,6 +14,14 @@ function renderOrderBox() {
   const refOrderFromBox = document.getElementById("orderBoxList");
   let orders = "";
 
+  // wenn leer dann part aus html anzeigen
+  if (orderBox.length === 0) {
+    refOrderFromBox.innerHTML = `
+      <li class="order_box_empty">Noch leer – mach’ die Segel klar!</li>
+    `;
+    return; // fertig
+  }
+
   for (let order = 0; order < orderBox.length; order++) {
     const refOrder = orderBox[order];
 
