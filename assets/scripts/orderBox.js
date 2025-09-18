@@ -71,8 +71,12 @@ function deleteOrder(order){
   console.log(orderBox); // FunkionsTest
 }
 
-// checkout, dialog öffnen und alles löschen
+// checkout, dialog öffnen und alles löschen4
+const dialogRef = document.getElementById('dialog1');
 function checkout() {
+ 
+    dialogRef.showModal();
+  
   // Alle Warenkorb-Items zurücksetzen
   for (let index = 0; index < orderBox.length; index++) {
     const item = orderBox[index];
@@ -98,4 +102,7 @@ function orderMath() {
   }
   if (refOrderSum) refOrderSum.textContent = total;
   return total;
+}
+function closeDialog(){
+  dialogRef.close()
 }

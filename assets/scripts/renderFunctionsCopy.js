@@ -50,16 +50,20 @@ function renderAllMainDishes() {
 
   // HTML-render vorberieten(Buffer->zwischenspeicher)
 
-  let htmlAll = "";
-  for (const s of sections) {
-    // KORREKT: id, refCatalog, refCategory, img
-    htmlAll += templateSectionStart(s.id, s.refCatalog, s.refCategory, s.img);
+  let htmlAll = "";                         // Sammel-String: hier hänge ich alles HTML an
+  for (const s of sections) {               // Schleife über alle Bereiche (Fisch, Fleisch, …)
+    
+    // kategorie-Header bauen (Überschrift + Bild)
+    htmlAll += templateSectionStart(s.refCategory, s.img, s.refCatalog);
+    
+    // Jetzt die einzelnen Karten/Items in dieser Section durchgehen
+    for (let index = 0; index < s.refDish.length; index++) {
+      const item = s.refDish[index];        // das aktuelle Gericht/Getränk-Objekt
   
-    // KORREKT: über s.refDish iterieren
-    for (let idx = 0; idx < s.refDish.length; idx++) {
-      const item = s.refDish[idx];
-      htmlAll += templateMenuCatalog(item, s.onClickFor(idx));
+      // Karte rendern und anhängen, index von onclick weitergeben!
+      htmlAll += templateMenuCatalog(item, s.onClickFor(index));
     }
   }
+  // Am Ende: das gesamte gebaute HTML in den Container schreiben
   refCatalogItems.innerHTML = htmlAll;
 }

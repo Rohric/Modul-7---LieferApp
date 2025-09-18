@@ -1,10 +1,10 @@
 // Templatefunkion zur Anzeige des start und end Bereiches
-function templateSectionStart(CatalogBereich, Kategorie, imgSrc) {
+function templateSectionStart(refCategory, img, refCatalog) {
   return `
-    <section class="catalog_section" id="${Kategorie}">
+    <section class="catalog_section" id="${refCategory}">
       <header class="catalog_heading">
-        <img src="${imgSrc}" alt="${Kategorie}" width="56" height="56">
-        <h2 id="${CatalogBereich}-title">${Kategorie}</h2>
+        <img src="${img}" alt="${refCatalog}" width="56" height="56">
+        <h2 id="${refCategory}-title">${refCategory}</h2>
       </header>
   `;
 }
